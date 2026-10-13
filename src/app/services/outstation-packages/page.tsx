@@ -116,86 +116,100 @@ export default function OutstationPackagesPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" suppressHydrationWarning>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name</label>
+                  <label htmlFor="outstation-name" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Your Name</label>
                   <input
+                    id="outstation-name"
                     type="text"
                     required
                     placeholder="Your Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Phone Number</label>
+                  <label htmlFor="outstation-phone" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Phone Number</label>
                   <input
+                    id="outstation-phone"
                     type="tel"
                     required
                     placeholder="Phone Number"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                  <label htmlFor="outstation-email" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Email Address</label>
                   <input
+                    id="outstation-email"
                     type="email"
                     required
                     placeholder="Email Address"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Journey Date</label>
+                  <label htmlFor="outstation-date" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Journey Date</label>
                   <input
+                    id="outstation-date"
                     type="date"
                     required
                     value={form.date}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">No. of Days</label>
+                  <label htmlFor="outstation-days" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>No. of Days</label>
                   <input
+                    id="outstation-days"
                     type="number"
                     min="1"
                     required
                     value={form.days}
                     onChange={(e) => setForm({ ...form, days: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">No. of Passengers</label>
+                  <label htmlFor="outstation-passengers" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>No. of Passengers</label>
                   <input
+                    id="outstation-passengers"
                     type="number"
                     min="1"
                     required
                     value={form.passengers}
                     onChange={(e) => setForm({ ...form, passengers: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Additional Notes (Optional)</label>
+                <label htmlFor="outstation-notes" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Additional Notes (Optional)</label>
                 <textarea
+                  id="outstation-notes"
                   rows={2}
                   placeholder="Destination cities, sightseeing spots, preferred car model (Innova Crysta, Sedan, Tempo)..."
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#ea580c] focus:outline-none"
+                  suppressHydrationWarning
                 />
               </div>
 

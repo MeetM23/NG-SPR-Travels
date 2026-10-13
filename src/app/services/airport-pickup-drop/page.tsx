@@ -116,84 +116,98 @@ export default function AirportPickupDropPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleAirportBooking} className="space-y-4">
+            <form onSubmit={handleAirportBooking} className="space-y-4" suppressHydrationWarning>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name</label>
+                  <label htmlFor="airport-name" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Your Name</label>
                   <input
+                    id="airport-name"
                     type="text"
                     required
                     placeholder="Your Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Phone Number</label>
+                  <label htmlFor="airport-phone" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Phone Number</label>
                   <input
+                    id="airport-phone"
                     type="tel"
                     required
                     placeholder="Phone Number"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                  <label htmlFor="airport-email" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Email Address</label>
                   <input
+                    id="airport-email"
                     type="email"
                     required
                     placeholder="Email Address"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Flight Number (Optional)</label>
+                  <label htmlFor="airport-flight" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Flight Number (Optional)</label>
                   <input
+                    id="airport-flight"
                     type="text"
                     placeholder="e.g. 6E 425 / AI 540"
                     value={form.flightNumber}
                     onChange={(e) => setForm({ ...form, flightNumber: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Journey Date</label>
+                  <label htmlFor="airport-date" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Journey Date</label>
                   <input
+                    id="airport-date"
                     type="date"
                     required
                     value={form.date}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Journey Time</label>
+                  <label htmlFor="airport-time" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Journey Time</label>
                   <input
+                    id="airport-time"
                     type="time"
                     required
                     value={form.time}
                     onChange={(e) => setForm({ ...form, time: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                    suppressHydrationWarning
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Additional Notes (Optional)</label>
+                <label htmlFor="airport-notes" className="block text-xs font-semibold text-gray-700 mb-1" suppressHydrationWarning>Additional Notes (Optional)</label>
                 <textarea
+                  id="airport-notes"
                   rows={2}
                   placeholder="Drop location details, number of bags, infant seat, etc."
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-xs focus:ring-2 focus:ring-[#059669] focus:outline-none"
+                  suppressHydrationWarning
                 />
               </div>
 
