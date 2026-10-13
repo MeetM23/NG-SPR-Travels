@@ -241,10 +241,6 @@ export default function ContactPage() {
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <h2 className="text-xl font-bold text-[#071527]">City Map</h2>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live Map
-                  </span>
                 </div>
                 <p className="text-xs text-gray-500 mb-4">
                   Interactive location view of our central office in Chennai.
