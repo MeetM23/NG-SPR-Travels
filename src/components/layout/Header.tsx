@@ -37,12 +37,9 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    {
-      name: "Services",
-      href: "/services",
+    { name: "Services", href: "/services",
       hasDropdown: true,
       subItems: [
-        { name: "All Services Overview", href: "/services" },
         { name: "Corporate IT Employee Transportation", href: "/services/corporate-it-transport" },
         { name: "Chennai Airport Pickup & Drop", href: "/services/airport-pickup-drop" },
         { name: "Individual & Outstation Packages", href: "/services/outstation-packages" },
@@ -70,17 +67,29 @@ export default function Header() {
 
               if (link.hasDropdown) {
                 return (
-                  <div key={link.name} className="relative" ref={dropdownRef}>
-                    <button
-                      type="button"
-                      onClick={() => setServicesDropdownOpen((prev) => !prev)}
-                      aria-expanded={servicesDropdownOpen}
-                      aria-haspopup="true"
-                      className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#e5a83b] cursor-pointer focus:outline-none ${
-                        isActive || servicesDropdownOpen ? "text-[#e5a83b]" : "text-gray-200"
+                  <div key={link.name} className="relative flex items-center gap-0.5" ref={dropdownRef}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setServicesDropdownOpen(false)}
+                      className={`text-sm font-medium transition-colors hover:text-[#e5a83b] ${
+                        isActive ? "text-[#e5a83b] border-b-2 border-[#e5a83b] pb-0.5" : "text-gray-200"
                       }`}
                     >
-                      <span>{link.name}</span>
+                      {link.name}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setServicesDropdownOpen((prev) => !prev);
+                      }}
+                      aria-expanded={servicesDropdownOpen}
+                      aria-haspopup="true"
+                      aria-label="Toggle services dropdown"
+                      className={`p-1 text-gray-300 hover:text-[#e5a83b] transition-colors cursor-pointer focus:outline-none ${
+                        servicesDropdownOpen ? "text-[#e5a83b]" : ""
+                      }`}
+                    >
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
                           servicesDropdownOpen ? "rotate-180 text-[#e5a83b]" : ""
@@ -89,7 +98,7 @@ export default function Header() {
                     </button>
 
                     {servicesDropdownOpen && (
-                      <div className="absolute left-0 mt-3 w-72 bg-[#0c2340] border border-[#1e3a5f] rounded-lg shadow-2xl py-2 z-50 animate-fadeIn">
+                      <div className="absolute left-0 top-full mt-2 w-72 bg-[#0c2340] border border-[#1e3a5f] rounded-lg shadow-2xl py-2 z-50 animate-fadeIn">
                         {link.subItems?.map((item) => (
                           <Link
                             key={item.href}
@@ -152,18 +161,33 @@ export default function Header() {
             <div key={link.name}>
               {link.hasDropdown ? (
                 <div>
-                  <button
-                    type="button"
-                    onClick={() => setServicesDropdownOpen((prev) => !prev)}
-                    className="w-full flex items-center justify-between py-2 text-base font-medium text-gray-200 hover:text-[#e5a83b] cursor-pointer"
-                  >
-                    <span>{link.name}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform ${
-                        servicesDropdownOpen ? "rotate-180 text-[#e5a83b]" : ""
-                      }`}
-                    />
-                  </button>
+                  <div className="w-full flex items-center justify-between py-2 text-base font-medium text-gray-200">
+                    <Link
+                      href={link.href}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="hover:text-[#e5a83b] flex-1 text-left"
+                    >
+                      {link.name}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setServicesDropdownOpen((prev) => !prev);
+                      }}
+                      className="p-1.5 text-gray-300 hover:text-[#e5a83b] cursor-pointer"
+                      aria-label="Toggle services menu"
+                    >
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          servicesDropdownOpen ? "rotate-180 text-[#e5a83b]" : ""
+                        }`}
+                      />
+                    </button>
+                  </div>
                   {servicesDropdownOpen && (
                     <div className="pl-4 space-y-1 my-1 border-l border-[#1e3a5f]">
                       {link.subItems?.map((sub) => (
